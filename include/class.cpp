@@ -68,9 +68,4 @@ public:
     std::string flower_name();
     bool update_flower_status(bool new_status);
 };
-
-class ProductList
-{
-
-};
 #endif
