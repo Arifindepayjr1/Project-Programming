@@ -3,8 +3,8 @@
 using namespace std;
 class Flowers;
 class Users{
-}
-class Cart;
+};
+class Cart{};
 
 struct Node {
     int data;
@@ -19,6 +19,7 @@ class Linklist{
         head = NULL;
         tail = NULL;
         size = 0;
+    }
     bool isEmpty(){
         if(size == 0){
             return true;
@@ -35,10 +36,11 @@ class Linklist{
         cout << "Can't add!!" << endl;
        }
        size++;
-    }   
+    }
+    void deleteAt(int Data){
     
 
-    }
+    }   
 };
 
 
@@ -50,22 +52,22 @@ int main()
     while(true){
     cout << "\n\n";
     cout << "\n\n Start Program \n\n";
-    cout << "\t\t\t======= Administrator =======";
-    cout << "\t\t\t|| 1.Admin                 ||";
-    cout << "\t\t\t|| 2.User                  ||";
-    cout << "\t\t\t|| 3.Exit                  ||";
-    cout << "\t\t\t=============================";
+    cout << "\t\t\t\t\t======= Administrator =======" << endl;
+    cout << "\t\t\t\t\t|| 1.Admin                 ||" << endl;
+    cout << "\t\t\t\t\t|| 2.User                  ||" << endl;
+    cout << "\t\t\t\t\t|| 3.Exit                  ||" << endl;
+    cout << "\t\t\t\t\t=============================" << endl;
     cout << "Who are you?" << endl;
-    cin << n;
+    cin >> n;
     switch(n){
         case 1: 
-            cout << "\t\t\t=========== Admin ===========";
-            cout << "\t\t\t|| 1.Add product           ||";
-            cout << "\t\t\t|| 2.History               ||";
-            cout << "\t\t\t|| 3.Check is flower dead  ||";
-            cout << "\t\t\t|| 4.Display product       ||";
-            cout << "\t\t\t|| 5.Exit                  ||";
-            cout << "\t\t\t=============================";
+            cout << "\t\t\t\t\t=========== Admin ===========" << endl;
+            cout << "\t\t\t\t\t|| 1.Add product           ||" << endl;
+            cout << "\t\t\t\t\t|| 2.History               ||" << endl;
+            cout << "\t\t\t\t\t|| 3.Check is flower dead  ||" << endl;
+            cout << "\t\t\t\t\t|| 4.Display product       ||" << endl;
+            cout << "\t\t\t\t\t|| 5.Exit                  ||" << endl;
+            cout << "\t\t\t\t\t=============================" << endl;
             cout << "Choose: ";
             cin >> admin_choice;
             switch(admin_choice){
@@ -84,14 +86,14 @@ int main()
             }
 
         case 2: 
-            cout << "\t\t\t=========== User ===========";
-            cout << "\t\t\t|| 1.Buy                   ||";
-            cout << "\t\t\t|| 2.remove                ||";
-            cout << "\t\t\t|| 3.Promotion             ||";
-            cout << "\t\t\t|| 4.Receipt               ||";
-            cout << "\t\t\t|| 5.Exit                  ||";
-            cout << "\t\t\t=============================";
-            cout << "Choose: ";
+            cout << "\t\t\t\t\t=========== User ============" << endl;
+            cout << "\t\t\t\t\t|| 1.Buy                   ||" << endl;
+            cout << "\t\t\t\t\t|| 2.remove                ||" << endl;
+            cout << "\t\t\t\t\t|| 3.Promotion             ||" << endl;
+            cout << "\t\t\t\t\t|| 4.Receipt               ||" << endl;
+            cout << "\t\t\t\t\t|| 5.Exit                  ||" << endl;
+            cout << "\t\t\t\t\t=============================" << endl;
+            cout << "Choose: " << endl;
             cin >> user_choice;
             switch(user_choice){
                 case 1:
@@ -115,13 +117,6 @@ int main()
 
 
 
-
-
-
-
-
-
-    std::cout << "\n\n";
 
     return 0;
 }
