@@ -3,6 +3,7 @@
 
 
 #include <iostream>
+<<<<<<< HEAD
 #include <fstream>
 #include <sstream>
 #include <string>
@@ -10,6 +11,15 @@ class Admin;       /*          Information Admin               */
 class Flowers;     /*          Information Flowers            */
 class Users;       /*          Information Users             */
 class Productlist; /*                      ADT              */
+=======
+
+using namespace std;
+
+class Admin;            /*          Information Admin               */
+class Flowers;          /*          Information Flowers            */
+class Users;            /*          Information Users             */
+class Productlist;      /*                      ADT              */
+>>>>>>> 777109a0763b8fc2ab994acb9eb0f299671dd5b6
 
 class Admin
 {
@@ -68,7 +78,6 @@ public:
     int flower_quantity();
     bool flower_status();
     std::string flower_name();
-    bool update_flower_status(bool new_status);
 };
 struct Node {
     int id;
@@ -83,6 +92,7 @@ struct Node {
 };
 class ProductList
 {
+<<<<<<< HEAD
  private:
     Node* head;
     int gen_ID(){
@@ -95,6 +105,12 @@ class ProductList
         return id;
     }
  public:
+=======
+ public:
+    Users* head;
+    Users* tail;
+    int size;
+>>>>>>> 777109a0763b8fc2ab994acb9eb0f299671dd5b6
     ProductList(){
         head = NULL;
     }
@@ -105,8 +121,25 @@ class ProductList
             return false;
         }
     }
+<<<<<<< HEAD
     void insertAt(int id, int Newdata){
         Node* newNode = new Node(id,Newdata);
+=======
+    void add(int Newdata){
+        Users* t = new Node;
+        t->data = Newdata;
+        t->next = head;
+       head = t;
+       if(isEmpty()){
+        cout << "Can't add!!" << endl;
+       }
+       size++;
+    }
+    void deleteAt(int ID){
+        if(isEmpty()){
+            cout << "Nothing in file." << endl;
+        }
+>>>>>>> 777109a0763b8fc2ab994acb9eb0f299671dd5b6
 
         if( head == NULL){
             head = newNode;
@@ -120,6 +153,7 @@ class ProductList
         cout << "Enter the ID: " << id << endl;
         cout << "Enter value : " << Newdata << endl;
     }
+<<<<<<< HEAD
     void deleteAt(int id){
         if(isEmpty()){
             cout << "The product is empty." << endl;
@@ -159,4 +193,8 @@ class ProductList
     }
 
     // Done with add update and delete at any position by searching product id
+=======
+};
+
+>>>>>>> 777109a0763b8fc2ab994acb9eb0f299671dd5b6
 #endif
