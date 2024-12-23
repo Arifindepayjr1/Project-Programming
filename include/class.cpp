@@ -3,6 +3,9 @@
 
 
 #include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
 class Admin;       /*          Information Admin               */
 class Flowers;     /*          Information Flowers            */
 class Users;       /*          Information Users             */
@@ -67,39 +70,93 @@ public:
     std::string flower_name();
     bool update_flower_status(bool new_status);
 };
+struct Node {
+    int id;
+    Node* next;
+    int data;
+    Node(int value ,int ID){
+        id = ID;
+        data = value;
+        next = NULL;
+    }
+    
+};
 class ProductList
 {
- public:
+ private:
     Node* head;
-    Node* tail;
-    int size;
+    int gen_ID(){
+        int id = 1;
+        Node* tmp = head;
+        while(tmp){
+            id = max(id,tmp->id+1);
+            tmp = tmp->next;
+        }
+        return id;
+    }
+ public:
     ProductList(){
         head = NULL;
-        tail = NULL;
-        size = 0;
     }
     bool isEmpty(){
-        if(size == 0){
+        if(head == NULL){
             return true;
         }else {
             return false;
         }
     }
-    void add(int Newdata){
-        Node* t = new Node;
-        t->data = Newdata;
-        t->next = head;
-       head = t;
-       if(isEmpty()){
-        cout << "Can't add!!" << endl;
-       }
-       size++;
-    }
-    void deleteAt(int ID){
-        if(isEmpty()){
-            cout << "Nothing in file." << endl;
-        }
+    void insertAt(int id, int Newdata){
+        Node* newNode = new Node(id,Newdata);
 
+        if( head == NULL){
+            head = newNode;
+        } else {
+            Node* tmp = head;
+            while(tmp->next != NULL){
+                tmp = tmp->next;
+            }
+            tmp->next = newNode;
+        }
+        cout << "Enter the ID: " << id << endl;
+        cout << "Enter value : " << Newdata << endl;
     }
-};
+    void deleteAt(int id){
+        if(isEmpty()){
+            cout << "The product is empty." << endl;
+            return;
+        }
+        if(head->id == id){
+            Node* tmp = head;
+            head = head->next;
+            delete tmp;
+            cout << " " << id << "deleted!" << endl;
+            return;
+        }
+        Node* tmp = head;
+        while (tmp->next && tmp->next->id != id){
+            tmp = tmp->next;
+        }
+        if(tmp->next == NULL){
+            cout << "ID " << id << "not found!" << endl;
+            return;
+        }
+        Node* ToDelete = tmp->next;
+        tmp->next = tmp->next->next;
+        delete ToDelete;
+        cout << "ID " << id << "deleted!" << endl;
+    }
+    void update(int id, int newData){
+        Node* tmp = head ;
+        while(tmp){
+            if(tmp->id == id){
+                tmp->data = newData;
+                cout << "Product id[" << id << "] updated to " << newData << " " << endl;
+                return;
+            }
+            tmp = tmp->next;
+        }
+        cout << "ID [" << id << "] not found!" << endl;
+    }
+
+    // Done with add update and delete at any position by searching product id
 #endif

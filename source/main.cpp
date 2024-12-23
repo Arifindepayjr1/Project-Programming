@@ -41,6 +41,7 @@ int main(){
                 cout << "\t\t\t\t\t|| 3.Delete product        ||" << endl;
                 cout << "\t\t\t\t\t|| 4.Check is flower dead  ||" << endl;
                 cout << "\t\t\t\t\t|| 5.Display product       ||" << endl;
+                cout << "\t\t\t\t\t|| 6.Save                  ||" << endl;
                 cout << "\t\t\t\t\t|| 6.Exit                  ||" << endl;
                 cout << "\t\t\t\t\t=============================" << endl;
                 cout << "Choose: ";
