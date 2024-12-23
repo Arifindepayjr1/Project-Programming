@@ -3,10 +3,13 @@
 
 
 #include <iostream>
-class Admin;       /*          Information Admin               */
-class Flowers;     /*          Information Flowers            */
-class Users;       /*          Information Users             */
-class Productlist; /*                      ADT              */
+
+using namespace std;
+
+class Admin;            /*          Information Admin               */
+class Flowers;          /*          Information Flowers            */
+class Users;            /*          Information Users             */
+class Productlist;      /*                      ADT              */
 
 class Admin
 {
@@ -65,13 +68,12 @@ public:
     int flower_quantity();
     bool flower_status();
     std::string flower_name();
-    bool update_flower_status(bool new_status);
 };
 class ProductList
 {
  public:
-    Node* head;
-    Node* tail;
+    Users* head;
+    Users* tail;
     int size;
     ProductList(){
         head = NULL;
@@ -86,7 +88,7 @@ class ProductList
         }
     }
     void add(int Newdata){
-        Node* t = new Node;
+        Users* t = new Node;
         t->data = Newdata;
         t->next = head;
        head = t;
@@ -102,4 +104,5 @@ class ProductList
 
     }
 };
+
 #endif
