@@ -38,8 +38,6 @@ class Linklist{
        size++;
     }
     void deleteAt(int Data){
-    
-
     }   
 };
 
@@ -50,8 +48,7 @@ int main()
     int admin_choice, user_choice;
     int n;
     while(true){
-    cout << "\n\n";
-    cout << "\n\n Start Program \n\n";
+    cout << "\t\t\t\t\t\tStart Program" << endl;
     cout << "\t\t\t\t\t======= Administrator =======" << endl;
     cout << "\t\t\t\t\t|| 1.Admin                 ||" << endl;
     cout << "\t\t\t\t\t|| 2.User                  ||" << endl;
@@ -110,13 +107,13 @@ int main()
                     cout << "Invalid choice!!";
 
             }
+        case 3: 
+            return 1;
+        default :
+            cout << "Invalid choice!!";
+            return 1;
         }
+        
     }
-
-
-
-
-
-
     return 0;
 }
