@@ -100,8 +100,6 @@ class ProductList
             cout << "Nothing in file." << endl;
         }
 
-    }   
-
-
+    }
 };
 #endif
