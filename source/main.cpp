@@ -111,6 +111,7 @@ int main()
                         return 1;
                     default:
                         cout << "Invalid choice!!";
+                        goto Aministrator;
 
                 }
             case 3: 
