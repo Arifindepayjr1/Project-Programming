@@ -4,7 +4,11 @@ using namespace std;
 class Flowers;
 class Users{
 };
+<<<<<<< HEAD
 class Cart{};
+=======
+class Cart;
+>>>>>>> 9d2369d4688e85d3fff1e4d517f549b51a325ece
 
 struct Node {
     int data;
@@ -36,9 +40,15 @@ class Linklist{
         cout << "Can't add!!" << endl;
        }
        size++;
+<<<<<<< HEAD
     }
     void deleteAt(int Data){
     }   
+=======
+    }   
+    
+
+>>>>>>> 9d2369d4688e85d3fff1e4d517f549b51a325ece
 };
 
 
