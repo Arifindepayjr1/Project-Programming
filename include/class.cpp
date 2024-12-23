@@ -3,7 +3,6 @@
 
 
 #include <iostream>
-
 class Admin;       /*          Information Admin               */
 class Flowers;     /*          Information Flowers            */
 class Users;       /*          Information Users             */
@@ -68,9 +67,41 @@ public:
     std::string flower_name();
     bool update_flower_status(bool new_status);
 };
-
 class ProductList
 {
+ public:
+    Node* head;
+    Node* tail;
+    int size;
+    ProductList(){
+        head = NULL;
+        tail = NULL;
+        size = 0;
+    }
+    bool isEmpty(){
+        if(size == 0){
+            return true;
+        }else {
+            return false;
+        }
+    }
+    void add(int Newdata){
+        Node* t = new Node;
+        t->data = Newdata;
+        t->next = head;
+       head = t;
+       if(isEmpty()){
+        cout << "Can't add!!" << endl;
+       }
+       size++;
+    }
+    void deleteAt(int ID){
+        if(isEmpty()){
+            cout << "Nothing in file." << endl;
+        }
+
+    }   
+
 
 };
 #endif

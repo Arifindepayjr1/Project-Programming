@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <sstring>
 using namespace std;
 class Flowers;
 class Users{
@@ -11,41 +12,15 @@ struct Node {
     Node *next;
 };
 class Linklist{
-    public:
-    Node* head;
-    Node* tail;
-    int size;
-    Linklist(){
-        head = NULL;
-        tail = NULL;
-        size = 0;
-    }
-    bool isEmpty(){
-        if(size == 0){
-            return true;
-        }else {
-            return false;
-        }
-    }
-    void add(int Newdata){
-        Node* t = new Node;
-        t->data = Newdata;
-        t->next = head;
-       head = t;
-       if(isEmpty()){
-        cout << "Can't add!!" << endl;
-       }
-       size++;
-    }
-    void deleteAt(int Data){
-    }   
+   
 };   
 
 
 
 
-int main()
-{
+int main(){
+
+
     int admin_choice, user_choice;
     int n;
     while(true){
