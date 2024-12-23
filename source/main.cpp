@@ -3,7 +3,7 @@
 using namespace std;
 class Flowers;
 class Users{
-}
+};
 class Cart;
 
 struct Node {
@@ -19,6 +19,7 @@ class Linklist{
         head = NULL;
         tail = NULL;
         size = 0;
+    }
     bool isEmpty(){
         if(size == 0){
             return true;
@@ -38,7 +39,6 @@ class Linklist{
     }   
     
 
-    }
 };
 
 
@@ -56,7 +56,7 @@ int main()
     cout << "\t\t\t|| 3.Exit                  ||";
     cout << "\t\t\t=============================";
     cout << "Who are you?" << endl;
-    cin << n;
+    cin >> n;
     switch(n){
         case 1: 
             cout << "\t\t\t=========== Admin ===========";
