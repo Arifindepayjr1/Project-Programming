@@ -191,8 +191,49 @@ class ProductList
         }
         cout << "ID [" << id << "] not found!" << endl;
     }
-
     // Done with add update and delete at any position by searching product id
+    void saveTofile(string& filename){
+        ofstream file(filename);
+        if(!file.is_open()){
+            cout << "File could not open!" << endl;
+            return;
+        }
+        Node* tmp = head;
+        while(tmp){
+            file << tmp->id << "," << tmp->data << endl;
+            tmp = tmp->next;
+        }
+        file.close();
+        cout << "Data have been saved!" << endl;
+    }
+    
+    void readFromFile(string& filename){
+        ifstream file(filename);
+        if(!file.is_open()){
+            cout << "File could not open!" << endl;
+            return;
+        }
+        string line;
+        while(getline(file,line)){
+            stringstream ss(line);
+            string idstr, datastr;
+            getline(ss,idstr, ",");
+            getline(ss,datestr, ",");
+
+            Node* newData = new Node(id,data);
+            if(head == NULL){
+                head = newData;
+            }else {
+                Node* tmp = head;
+                while(tmp->next){
+                    tmp = tmp->next;
+                }
+                tmp->next = newData;
+        }
+    }
+    file.close();
+    cout << "Data loaded." << endl;
+    }
 =======
 };
 
