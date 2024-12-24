@@ -43,7 +43,10 @@ public:
         : m_flower_status{status}, m_flower_id{flower_id}, m_flower_price{flowers_prcice} , m_flower_quantity{flower_quantity}, m_flower_name{flower_name}, m_flower_next{flower_next}
     {
     }
-
+    double flower_price() 
+    {
+        return m_flower_price;
+    }
     int flower_id()
     {
         return m_flower_id;
@@ -218,6 +221,22 @@ public:
 
         std::cout << "Flower with ID " << flower_id << " deleted successfully.\n";
         return true;
+    }
+    void search_id(int id , Flowers* checkid)
+    {
+        Flowers* current = head;
+        for(current; current != nullptr;)
+        {
+            if(current->m_flower_id == id)
+            {
+                checkid->m_flower_id       = current->m_flower_id;
+                checkid->m_flower_name     = current->m_flower_name;
+                checkid->m_flower_price    = current->m_flower_price;
+                checkid->m_flower_status   = current->m_flower_status;
+                checkid->m_flower_quantity = current->m_flower_quantity;    
+            }
+            current = current -> m_flower_next;
+        }
     }
 
     friend class Admin;
