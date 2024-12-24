@@ -73,7 +73,7 @@ class FlowersProductlist
 private:
     Flowers *head{nullptr};
     Flowers *tail{nullptr};
-    int size{};
+    int m_size{};
 
 public:
     FlowersProductlist() = default;
@@ -93,12 +93,12 @@ public:
         {
             head = new Flowers{flowers_status, flowers_id, flowers_quantity, flowers_price, flowers_name};
             tail = head;
-            ++size;
+            ++m_size;
         }
         else
         {
             head = new Flowers{flowers_status, flowers_id, flowers_quantity, flowers_price, flowers_name, head};
-            ++size;
+            ++m_size;
         }
     }
     void Display_product()
@@ -172,6 +172,10 @@ public:
             tail = current;
             return true;
         }
+    }
+    int get_size()
+    {
+        return m_size;
     }
 };
 
