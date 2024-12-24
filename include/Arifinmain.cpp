@@ -32,6 +32,12 @@ int main()
 
         fclose(flowerread);
         flower.Display_product();
+        Flowers flowersale;
+        flower.search_id(6 , &flowersale);
+        Users kanzaki{4, "kanzaki"};
+        std::cout << "\n\n --------------------------------------- \n\n";
+        kanzaki.addtocart(flowersale.flower_status(), flowersale.flower_id(), flowersale.flower_price(), flowersale.flower_name(), 3);
+        kanzaki.display_carts();
     }
 
   return 0;
