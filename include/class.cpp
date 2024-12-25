@@ -1,5 +1,6 @@
 #ifndef CLASS       /* preventing duplicate class file */
 #define CLASS 
+
 #include <iostream>
 #include <cstdio>
 #include <fstream>
