@@ -353,7 +353,7 @@ public:
         }
         FlowersCarts *temp = m_users_cart_head;
         m_users_cart_head = m_users_cart_head->m_flower_next;
-        if (m_users_cart_head == nullptr) // Cart is now empty
+        if (m_users_cart_head == nullptr) 
             m_users_cart_tail = nullptr;
         delete temp;
     }
