@@ -39,8 +39,8 @@ private:
 
 public:
     Flowers() = default;
-    Flowers(bool status, int flower_id, int flower_quantity, double flowers_prcice, std::string flower_name, Flowers *flower_next = nullptr)
-        : m_flower_status{status}, m_flower_id{flower_id}, m_flower_price{flowers_prcice}, m_flower_quantity{flower_quantity}, m_flower_name{flower_name}, m_flower_next{flower_next}
+    Flowers(bool status, int flower_id, int flower_quantity, double flowers_price, std::string flower_name, Flowers *flower_next = nullptr)
+        : m_flower_status{status}, m_flower_id{flower_id}, m_flower_price{flowers_price}, m_flower_quantity{flower_quantity}, m_flower_name{flower_name}, m_flower_next{flower_next}
     {
     }
     double flower_price()
@@ -67,6 +67,10 @@ public:
     {
         this->m_flower_status = new_status;
         return true;
+    }
+    void update_price_nearly_death()
+    {
+        this -> m_flower_price =  m_flower_price * 0.5;  
     }
     friend class FlowersProductlist;
 };
@@ -115,6 +119,49 @@ public:
             std::cout << "Flowers_quantity : " << current->m_flower_quantity << "\n";
             std::cout << "Flowers_price    : " << current->m_flower_price << "\n";
             std::cout << "Flowers_name     : " << current->m_flower_name << "\n";
+            std::cout << "\n\n -------------------------------------------------------- \n\n";
+
+            current = current->m_flower_next;
+        }
+    }
+    void Display_product_for_nearly_death()
+    {
+        Flowers *current = head;
+        while(current != nullptr)
+        {
+            if(current->m_flower_status == 0)
+            {
+                current->update_price_nearly_death();
+                std::cout << "Flowers_name     : " << current->m_flower_name << "\n";
+                std::cout << "Flowers_id       : " << current->m_flower_id << "\n";
+                std::cout << "Flowers_price    : " << current->m_flower_price << "\n";
+                std::cout << "\n\n -------------------------------------------------------- \n\n";
+            }
+            else;
+            current = current->m_flower_next;
+        }
+    }
+    void Calculate_product_for_promotion()
+    {
+        Flowers *current = head;
+        while (current != nullptr)
+        {
+            if (current->m_flower_status == 0)
+            {
+                current->update_price_nearly_death();
+            }
+            else;
+            current = current->m_flower_next;
+        }
+    }
+    void Display_product_for_users()
+    {
+        Flowers *current = head;
+        while (current != nullptr)
+        {
+            std::cout << "Flowers_name     : " << current->m_flower_name << "\n";
+            std::cout << "Flowers_id       : " << current->m_flower_id << "\n";
+            std::cout << "Flowers_price    : " << current->m_flower_price << "\n";
             std::cout << "\n\n -------------------------------------------------------- \n\n";
 
             current = current->m_flower_next;
@@ -435,6 +482,10 @@ public:
     void users_update_name(std::string new_name)
     {
         this->m_name = new_name;
+    }
+    void set_product_quantity(int quantity)
+    {
+        this ->m_product_quantity = quantity;
     }
 };
 
