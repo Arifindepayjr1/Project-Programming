@@ -11,3 +11,14 @@ Peony          87        1.875     163.125
 Total Cost: 760.125
 *******************************
 Payment Method: Cash
+*** Receipt ***
+User Name: heng
+User ID  : 2342
+-------------------------------
+Flower Name    Quantity  Price     Subtotal
+ -------------------------------
+Rose           12        20        240       
+-------------------------------
+Total Cost: 240
+*******************************
+Payment Method: Cash
