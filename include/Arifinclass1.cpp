@@ -4,6 +4,7 @@
 #include <iostream>
 #include <cstdio>
 #include <fstream>
+#include <iomanip>
 
 class Admin;              /*          Information Admin               */
 class Flowers;            /*           Information ( Flowers )            */
@@ -14,18 +15,14 @@ class FlowersCarts; /*             Users Buying ( Flowers )*/
 
 class Admin
 {
-private:
-    const int m_admin_password{555};
-    std::string m_admin_name{"Admin"};
-
 public:
-    Admin() = default;
-
-    void admin_users_history();
-    void admin_flowers_history();
-    bool admin_vertify_password(int password);
-    void admin_users_information(int user_id);    /*      searching for specific users     */
-    void admin_flowrs_information(int flower_id); /*      searching for specific flowers   */
+    void admin_users_history()
+    {
+        const char *filename = "receipt.txt";
+        std::vector<Receipt> receipts;
+        parse_receipts(filename, receipts);
+        display_receipts(receipts);
+    }
 };
 class Flowers
 {
@@ -73,6 +70,7 @@ public:
         this -> m_flower_price =  m_flower_price * 0.5;  
     }
     friend class FlowersProductlist;
+    friend class Admin;
 };
 class FlowersProductlist /* for admin */
 {
@@ -285,6 +283,30 @@ public:
             current = current->m_flower_next;
         }
     }
+    void write_to_file(const std::string &filename)
+    {
+        std::ofstream file(filename , std::ios::out);
+
+        if (!file)
+        {
+            std::cerr << "Error opening file!" << std::endl;
+            return;
+        }
+
+        Flowers *current = head;
+        while (current != nullptr)
+        {
+            file << current->m_flower_name << " "
+                 << current->m_flower_id << " "
+                 << current->m_flower_status << " "
+                 << current->m_flower_quantity << " "
+                 << current->m_flower_price << "\n";
+
+            current = current->m_flower_next;
+        }
+
+        file.close();
+    }
 
     friend class Admin;
 };
@@ -486,6 +508,101 @@ public:
     void set_product_quantity(int quantity)
     {
         this ->m_product_quantity = quantity;
+    }
+    void generate_receipt()
+    {
+        if (m_users_cart_head == nullptr)
+        {
+            std::cout << "\n\nCart is empty. No receipt to generate.\n\n";
+            return;
+        }
+
+        std::ofstream receipt_file("receipt.txt" , std::ios::app);
+        if (!receipt_file)
+        {
+            std::cerr << "Error: Unable to create receipt file.\n";
+            return;
+        }
+
+        std::cout << "\n\n*** Receipt ***\n";
+        receipt_file << "*** Receipt ***\n";
+
+        std::cout << "User Name: " << m_name << "\n";
+        receipt_file << "User Name: " << m_name << "\n";
+
+        std::cout << "User ID  : " << m_id << "\n";
+        receipt_file << "User ID  : " << m_id << "\n";
+
+        std::cout << "-------------------------------\n";
+        receipt_file << "-------------------------------\n";
+
+        std::cout << std::left << std::setw(15) << "Flower Name"
+                  << std::setw(10) << "Quantity"
+                  << std::setw(10) << "Price"
+                  << std::setw(10) << "Subtotal\n";
+        receipt_file << std::left << std::setw(15) << "Flower Name"
+                     << std::setw(10) << "Quantity"
+                     << std::setw(10) << "Price"
+                     << std::setw(10) << "Subtotal\n";
+
+        std::cout << "-------------------------------\n";
+        receipt_file << "-------------------------------\n";
+
+        FlowersCarts *current = m_users_cart_head;
+        double total_cost = 0;
+
+        while (current != nullptr)
+        {
+            double subtotal = current->m_flower_price * current->m_flowers_quantity_cart;
+            total_cost += subtotal;
+
+            std::cout << std::left << std::setw(15) << current->m_flower_name
+                      << std::setw(10) << current->m_flowers_quantity_cart
+                      << std::setw(10) << current->m_flower_price
+                      << std::setw(10) << subtotal << "\n";
+
+            receipt_file << std::left << std::setw(15) << current->m_flower_name
+                         << std::setw(10) << current->m_flowers_quantity_cart
+                         << std::setw(10) << current->m_flower_price
+                         << std::setw(10) << subtotal << "\n";
+
+            current = current->m_flower_next;
+        }
+
+        std::cout << "-------------------------------\n";
+        std::cout << "Total Cost: " << total_cost << "\n";
+        std::cout << "*******************************\n";
+
+        receipt_file << "-------------------------------\n";
+        receipt_file << "Total Cost: " << total_cost << "\n";
+        receipt_file << "*******************************\n";
+
+        int payment_choice;
+        std::string payment_method;
+        std::cout << "Choose a payment method:\n";
+        std::cout << "1. Cash\n";
+        std::cout << "2. Credit Card\n";
+        std::cout << "Enter your choice: ";
+        std::cin >> payment_choice;
+
+        switch (payment_choice)
+        {
+        case 1:
+            payment_method = "Cash";
+            break;
+        case 2:
+            payment_method = "Credit Card";
+            break;
+        default:
+            std::cout << "Invalid choice. Defaulting to Cash.\n";
+            payment_method = "Cash";
+            break;
+        }
+
+        std::cout << "Payment Method: " << payment_method << "\n";
+        receipt_file << "Payment Method: " << payment_method << "\n";
+
+        receipt_file.close();
     }
 };
 
