@@ -3,8 +3,8 @@
 #include <cstdio>
 #include "Arifinclass1.cpp"
 
-#define Alive 1
-#define nearly_Death 0
+#define ALIVE 1
+#define NEARLY_DEATH 0
 
 
 using namespace std;
@@ -21,7 +21,7 @@ int main()
     }
     else
     {
-        char f_name[100]; // Temporary char array for fscanf
+        char f_name[100]; 
         int f_id;
         int f_status;
         int f_quantity;
