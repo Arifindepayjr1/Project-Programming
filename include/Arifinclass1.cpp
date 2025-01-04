@@ -5,6 +5,7 @@
 #include <cstdio>
 #include <fstream>
 #include <iomanip>
+#include "ReadFromFile.cpp"
 
 class Admin;              /*          Information Admin               */
 class Flowers;            /*           Information ( Flowers )            */
@@ -159,7 +160,7 @@ public:
         {
             std::cout << "Flowers_name     : " << current->m_flower_name << "\n";
             std::cout << "Flowers_id       : " << current->m_flower_id << "\n";
-            std::cout << "Flowers_price    : " << current->m_flower_price << "\n";
+            std::cout << "Flowers_price    : " << "$" << current->m_flower_price << "\n";
             std::cout << "\n\n -------------------------------------------------------- \n\n";
 
             current = current->m_flower_next;
@@ -565,9 +566,7 @@ public:
             total_cost += subtotal;
 
             std::cout << std::left << std::setw(15) << current->m_flower_name
-                      << std::setw(10) << current->m_flowers_quantity_cart
-                      << std::setw(10) << "$" << current->m_flower_price
-                      << std::setw(10) << "$" << subtotal << "\n";
+                      << std::setw(10) << current->m_flowers_quantity_cart<<"$"<< current->m_flower_price << "\t" << " " << " " << " " << "$" << subtotal << "\n";
 
             receipt_file << std::left << std::setw(15) << current->m_flower_name
                          << std::setw(10) << current->m_flowers_quantity_cart
@@ -607,8 +606,8 @@ public:
             break;
         }
 
-        std::cout << "Payment Method: " << payment_method << "\n";
-        receipt_file << "Payment Method: " << payment_method << "\n";
+        std::cout << "\n\nPayment Method: " << payment_method << "\n\n";
+        receipt_file << "\n\nPayment Method: " << payment_method << "\n\n";
 
         receipt_file.close();
     }
