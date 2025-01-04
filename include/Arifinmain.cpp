@@ -102,6 +102,7 @@ int main()
                         goto Administrator;
                         break;
                     case 3:
+                        std::cout << "\n\n Display Product \n\n";
                         flower.Display_product();
                         std::cout << " Remove By ID \n";
                         std::cout << "Enter Yours Choice : ";
@@ -111,17 +112,20 @@ int main()
                         goto Administrator;
                         break;
                     case 4:
+                        std::cout << "\n\n Flower That Are Nearly Death \n\n";
                         flower.Display_product_for_nearly_death();
                         goto Administrator;
                         break;
                     case 5:
+                        std::cout << "\n\n Display Product\n\n";
                         flower.Display_product();
                         goto Administrator;
                         break;
                     case 6:
                         break;
                     case 7:
-                        std::cout << "Goodbye!!";
+                        std::cout << "\n\nGoodbye!!\n\n";
+                        return 1;
                         break;
                     default:
                         cout << "Invalid choice!!";
@@ -162,6 +166,7 @@ int main()
                 {
                     case 1:
                         std::cout << "\n";
+                        std::cout << "\n\n Display Product \n\n";
                         flower.Calculate_product_for_promotion();
                         flower.Display_product_for_users();
                         std::cout << "Enter Flowers Id You Want To Buy : ";
@@ -300,7 +305,7 @@ int main()
                         return 1;
                         break;
                     case 5:
-                        std::cout << "Goodbye!!";
+                        std::cout << "\n\nGoodbye!!\n\n";
                         return 1;
                         break;
                     default:
