@@ -81,11 +81,11 @@ void display_receipts(const std::vector<Receipt> &receipts)
         for (const auto &flower : receipt.flowers)
         {
             std::cout << flower.flower_name << "           " << flower.quantity
-                      << "         " << flower.price << "       " << flower.subtotal << "\n";
+                      << "         " << flower.price << "$" << "       " << flower.subtotal << "$" << "\n";
         }
         std::cout << "-------------------------------\n";
-        std::cout << "Total Cost: " << receipt.total_cost << "\n";
+        std::cout << "Total Cost: " << "$" << receipt.total_cost << "\n";
         std::cout << "*******************************\n";
-        std::cout << "Payment Method: " << receipt.payment_method << "\n";
+        std::cout << "\n\nPayment Method: " << receipt.payment_method << "\n\n";
     }
 }
