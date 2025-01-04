@@ -14,6 +14,9 @@ int main()
     FILE *flowerread;
     FILE *flowerwrite;
     FlowersProductlist flower;
+    int i = 0;
+    int lastest_id = 0;
+
 
     flowerread = fopen("flower.txt", "r");
     if (flowerread == NULL)
@@ -27,11 +30,15 @@ int main()
         int f_status;
         int f_quantity;
         double f_price;
-
         // Read the data from the file
         while (fscanf(flowerread, "%s %d %d %d %lf", f_name, &f_id, &f_status, &f_quantity, &f_price) != EOF)
         {
             flower.add_product(static_cast<bool>(f_status), f_id, f_quantity, f_price, f_name);
+            if(i == 0)
+            {
+                lastest_id = f_id + 1;
+                i = 1;
+            }
         }        
     }
     int admin_choice; 
@@ -53,7 +60,7 @@ int main()
 
         std::string n_name;
         int n_id;
-        int n_status;
+        bool n_status;
         int n_quantity;
         double n_price;
 
@@ -84,8 +91,7 @@ int main()
                     case 1:
                         std::cout << "Product Name : ";
                         std::cin >> n_name;
-                        std::cout << "Product ID   : ";
-                        std::cin >> n_id;
+                        n_id = lastest_id;
                         std::cout << "Product Status : ";
                         std::cin >> n_status;
                         std::cout << "Product Quantity : ";
@@ -100,8 +106,10 @@ int main()
                         }
                         else 
                         {
-                            fscanf(flowerwrite, "%s %d %d %d %lf", n_name, n_id, n_status, n_quantity, n_price);
+                            fprintf(flowerwrite, "%s %d %d %d %lf", n_name.c_str(), n_id, n_status, n_quantity, n_price);
                         }
+                        fclose(flowerwrite);
+                        goto Administrator;
                         break;
                     case 2:
                         admin.admin_users_history();
@@ -164,7 +172,8 @@ int main()
                 cout << "\t\t\t\t\t|| 2.remove                ||" << endl;
                 cout << "\t\t\t\t\t|| 3.Promotion             ||" << endl;
                 cout << "\t\t\t\t\t|| 4.Receipt               ||" << endl;
-                cout << "\t\t\t\t\t|| 5.Exit                  ||" << endl;
+                cout << "\t\t\t\t\t|| 5.Display Cart          ||" << endl;
+                cout << "\t\t\t\t\t|| 6.Exit                  ||" << endl;
                 cout << "\t\t\t\t\t=============================" << endl;
                 cout << "Choose: ";
                 cin >> user_choice;
@@ -311,6 +320,11 @@ int main()
                         return 1;
                         break;
                     case 5:
+                        std::cout << "\n\n Display Cart \n\n";
+                        users1.display_carts();
+                        goto User;
+                        break;
+                    case 6:
                         std::cout << "\n\nGoodbye!!\n\n";
                         return 1;
                         break;
