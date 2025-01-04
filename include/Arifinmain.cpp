@@ -60,6 +60,12 @@ int main()
         int admin_remove_id;
         switch(choice)
         {
+            case 3: 
+                return 1;
+                break;
+            default: 
+                cout << "Out of choices!!";
+                break;
             Administrator:
             case 1:
                 cout << "\t\t\t\t\t=========== Admin =============" << endl;
