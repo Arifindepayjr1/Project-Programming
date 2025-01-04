@@ -1,6 +1,0 @@
-iidifj 4 1 100 32
-Peony 5 0 8 30
-Sunflower 4 1 10 50
-Tulip 2 0 10 19.9
-akimar 3 1 43 32
-jj 5 1 1000 2000
