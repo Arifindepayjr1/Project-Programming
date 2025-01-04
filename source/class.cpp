@@ -3,7 +3,6 @@
 
 
 #include <iostream>
-<<<<<<< HEAD
 #include <fstream>
 #include <sstream>
 #include <string>
@@ -11,15 +10,6 @@ class Admin;       /*          Information Admin               */
 class Flowers;     /*          Information Flowers            */
 class Users;       /*          Information Users             */
 class Productlist; /*                      ADT              */
-=======
-
-using namespace std;
-
-class Admin;            /*          Information Admin               */
-class Flowers;          /*          Information Flowers            */
-class Users;            /*          Information Users             */
-class Productlist;      /*                      ADT              */
->>>>>>> 777109a0763b8fc2ab994acb9eb0f299671dd5b6
 
 class Admin
 {
