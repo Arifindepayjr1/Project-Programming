@@ -1,0 +1,53 @@
+*** Receipt ***
+User Name: Arifin
+User ID  : 3242
+-------------------------------
+Flower Name    Quantity  Price     Subtotal
+ -------------------------------
+iidifja        134       32        4288      
+-------------------------------
+Total Cost: 4288
+*******************************
+Payment Method: Cash
+
+*** Receipt ***
+User Name: ARifin
+User ID  : 3124
+-------------------------------
+Flower Name    Quantity  Price     Subtotal
+ -------------------------------
+akimari        299       32        9568      
+-------------------------------
+Total Cost: 9568
+*******************************
+Payment Method: Credit Card
+*** Receipt ***
+User Name: ARifin
+User ID  : 244
+-------------------------------
+Flower Name    Quantity  Price     Subtotal
+ -------------------------------
+Peony          100       15        1500      
+iidifja        2342      32        74944     
+-------------------------------
+Total Cost: 76444
+*******************************
+
+
+Payment Method: Cash
+
+*** Receipt ***
+User Name: Arifin
+User ID  : 432
+-------------------------------
+Flower Name    Quantity  Price     Subtotal
+ -------------------------------
+iidifja        324       32        10368     
+iidifja        324       32        10368     
+-------------------------------
+Total Cost: 20736
+*******************************
+
+
+Payment Method: Cash
+
