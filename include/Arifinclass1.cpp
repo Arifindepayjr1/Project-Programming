@@ -558,8 +558,8 @@ public:
 
             std::cout << std::left << std::setw(15) << current->m_flower_name
                       << std::setw(10) << current->m_flowers_quantity_cart
-                      << std::setw(10) << current->m_flower_price
-                      << std::setw(10) << subtotal << "\n";
+                      << std::setw(10) << "$" << current->m_flower_price
+                      << std::setw(10) << "$" << subtotal << "\n";
 
             receipt_file << std::left << std::setw(15) << current->m_flower_name
                          << std::setw(10) << current->m_flowers_quantity_cart
@@ -570,7 +570,7 @@ public:
         }
 
         std::cout << "-------------------------------\n";
-        std::cout << "Total Cost: " << total_cost << "\n";
+        std::cout << "Total Cost: $" << total_cost << "\n";
         std::cout << "*******************************\n";
 
         receipt_file << "-------------------------------\n";
