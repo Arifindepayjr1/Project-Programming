@@ -2,7 +2,6 @@
 #include <fstream>
 #include <cstdio>
 #include <iomanip>
-#include "ReadFromFile.cpp"
 #include "Arifinclass1.cpp"
 
 #define ALIVE 1
@@ -179,6 +178,7 @@ int main()
                 cin >> user_choice;
                 switch (user_choice)
                 {
+                    Product:
                     case 1:
                         std::cout << "\n";
                         std::cout << "\n\n Display Product \n\n";
@@ -276,6 +276,11 @@ int main()
                             users1.addtocart(flowersale.flower_status(), flowersale.flower_id(), flowersale.flower_price(), flowersale.flower_name(), quantity);
                             goto Users;
                         }
+                        else 
+                        {
+                            std::cout << "\n\n ID Not Found \n\n";
+                            goto Product;
+                        }
                         break;
                     case 2:
                         users1.display_carts();
@@ -322,7 +327,7 @@ int main()
                     case 5:
                         std::cout << "\n\n Display Cart \n\n";
                         users1.display_carts();
-                        goto User;
+                        goto Users;
                         break;
                     case 6:
                         std::cout << "\n\nGoodbye!!\n\n";
