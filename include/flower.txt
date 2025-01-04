@@ -1,15 +1,7 @@
-Breath 8 1 22 3000
-Daisy 7 1 30 100
-Carnation 6 1 20 99
-<<<<<<< HEAD
+iidifja 4 1 100 32
 Peony 5 0 8 30
 Sunflower 4 1 10 50
-Lily 3 1 9 20.5
 Tulip 2 0 10 19.9
-=======
-Peony 5 0 8 15
-Sunflower 4 1 10 50
-Lily 3 1 9 20.5
-Tulip 2 0 10 9.95
-Rose 1 1 10 20
->>>>>>> 2e1e01b407f394908438c66dff4a7fc26cdc34c8
+Arifin 13 1 100 200
+akimari 3 1 43 32
+jj 5 1 1000 2000
