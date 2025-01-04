@@ -288,13 +288,11 @@ public:
     {
         if (node == nullptr)
         {
-            return; // Base case: end of the list
+            return; 
         }
 
-        // Recur for the next node
         write_to_file_recursive(file, node->m_flower_next);
 
-        // Write the current node's data after the recursive call
         file << node->m_flower_name << " "
              << node->m_flower_id << " "
              << node->m_flower_status << " "
@@ -312,7 +310,6 @@ public:
             return;
         }
 
-        // Use the recursive function starting from head
         write_to_file_recursive(file, head);
 
         file.close();
