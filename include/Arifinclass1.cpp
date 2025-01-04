@@ -283,9 +283,27 @@ public:
             current = current->m_flower_next;
         }
     }
+    void write_to_file_recursive(std::ofstream &file, Flowers *node)
+    {
+        if (node == nullptr)
+        {
+            return; // Base case: end of the list
+        }
+
+        // Recur for the next node
+        write_to_file_recursive(file, node->m_flower_next);
+
+        // Write the current node's data after the recursive call
+        file << node->m_flower_name << " "
+             << node->m_flower_id << " "
+             << node->m_flower_status << " "
+             << node->m_flower_quantity << " "
+             << node->m_flower_price << "\n";
+    }
+
     void write_to_file(const std::string &filename)
     {
-        std::ofstream file(filename , std::ios::out);
+        std::ofstream file(filename, std::ios::out);
 
         if (!file)
         {
@@ -293,21 +311,11 @@ public:
             return;
         }
 
-        Flowers *current = head;
-        while (current != nullptr)
-        {
-            file << current->m_flower_name << " "
-                 << current->m_flower_id << " "
-                 << current->m_flower_status << " "
-                 << current->m_flower_quantity << " "
-                 << current->m_flower_price << "\n";
-
-            current = current->m_flower_next;
-        }
+        // Use the recursive function starting from head
+        write_to_file_recursive(file, head);
 
         file.close();
-    }
-
+ }
     friend class Admin;
 };
 class FlowersCarts
