@@ -1,0 +1,13 @@
+*** Receipt ***
+User Name: Arifin
+User ID  : 100
+-------------------------------
+Flower Name    Quantity  Price     Subtotal
+ -------------------------------
+Baby_Breath    10000     15        150000    
+-------------------------------
+Total Cost: 150000
+*******************************
+
+
+Payment Method: Credit Card
