@@ -3,6 +3,7 @@
 #include <cstdio>
 #include <iomanip>
 #include "Arifinclass1.cpp"
+#include <thread>
 
 #define ALIVE 1
 #define NEARLY_DEATH 0
@@ -47,12 +48,21 @@ int main()
     int remove_id{};
     while (true)
     {
-        std::cout << "\t\t\t\t\t\tStart Program" << std::endl;
+        std::cout << "\t\t\t\t ------------------------------------------" << std::endl;
+        std::cout << "\t\t\t\t         Welcome to the Flower Shop         " << std::endl;
+        std::cout << "\t\t\t\t ------------------------------------------" << std::endl;
+
+        for (int i = 0; i < 2; i++)
+        {
+            std::this_thread::sleep_for(std::chrono::seconds(1));
+        }
+
         std::cout << "\t\t\t\t\t======= Administrator =======" << std::endl;
-        std::cout << "\t\t\t\t\t|| 1.Admin                 ||" << std::endl;
-        std::cout << "\t\t\t\t\t|| 2.User                  ||" << std::endl;
-        std::cout << "\t\t\t\t\t|| 3.Exit                  ||" << std::endl;
+        std::cout << "\t\t\t\t\t|| 1. Admin                 ||" << std::endl;
+        std::cout << "\t\t\t\t\t|| 2. User                  ||" << std::endl;
+        std::cout << "\t\t\t\t\t|| 3. Exit                  ||" << std::endl;
         std::cout << "\t\t\t\t\t=============================" << std::endl;
+
         std::cout << "Who are you?: ";
         std::cin >> choice;
         Admin admin;
