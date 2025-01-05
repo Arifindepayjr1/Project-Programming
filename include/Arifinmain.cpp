@@ -34,13 +34,10 @@ int main()
         while (fscanf(flowerread, "%s %d %d %d %lf", f_name, &f_id, &f_status, &f_quantity, &f_price) != EOF)
         {
             flower.add_product(static_cast<bool>(f_status), f_id, f_quantity, f_price, f_name);
-            if(i == 0)
-            {
-                lastest_id = f_id + 1;
-                i = 1;
-            }
+            i = f_id;
         }        
     }
+    lastest_id = i + 1;
     int admin_choice; 
     int user_choice;
     int choice;
@@ -115,7 +112,7 @@ int main()
                         }
                         else 
                         {
-                            fprintf(flowerwrite, "%s %d %d %d %lf", n_name.c_str(), n_id, n_status, n_quantity, n_price);
+                            fprintf(flowerwrite, "\n%s %d %d %d %lf", n_name.c_str(), n_id, n_status, n_quantity, n_price);
                         }
                         fclose(flowerwrite);
                         goto Administrator;
