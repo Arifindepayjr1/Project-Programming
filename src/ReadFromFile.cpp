@@ -72,18 +72,18 @@ void display_receipts(const std::vector<Receipt> &receipts)
 {
     for (const auto &receipt : receipts)
     {
-        std::cout << "\n*** Receipt ***\n";
+        std::cout << "\n\n*** Receipt ***\n\n";
         std::cout << "User Name: " << receipt.user_name << "\n";
         std::cout << "User ID  : " << receipt.user_id << "\n";
-        std::cout << "-------------------------------\n";
-        std::cout << "Flower Name    Quantity  Price     Subtotal\n";
-        std::cout << "-------------------------------\n";
+        std::cout << "------------------------------------------------------------------------------------\n";
+        std::cout << "Flower Name    \t\tQuantity  \t\tPrice     \t\tSubtotal\n";
+        std::cout << "------------------------------------------------------------------------------------\n";
         for (const auto &flower : receipt.flowers)
         {
-            std::cout << flower.flower_name << "           " << flower.quantity
-                      << "         " << flower.price << "$" << "       " << flower.subtotal << "$" << "\n";
+            std::cout << flower.flower_name << "              " <<  flower.quantity
+                      << " \t\t        " << flower.price << "$" << "\t\t       " << flower.subtotal << "$" << "\n";
         }
-        std::cout << "-------------------------------\n";
+        std::cout << "------------------------------------------------------------------------------------\n";
         std::cout << "Total Cost: " << "$" << receipt.total_cost << "\n";
         std::cout << "*******************************\n";
         std::cout << "\n\nPayment Method: " << receipt.payment_method << "\n\n";
