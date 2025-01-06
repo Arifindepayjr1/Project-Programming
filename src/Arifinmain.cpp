@@ -1,12 +1,11 @@
 #include <iostream>
 #include <fstream>
 #include <cstdio>
-#include <iomanip>
 #include "Arifinclass1.cpp"
 #include <thread>
 
 #define ALIVE 1
-#define NEARLY_DEATH 0
+#define NEARLY_DEAD 0
 using namespace std;
 
 int main()
@@ -30,7 +29,6 @@ int main()
         int f_status;
         int f_quantity;
         double f_price;
-        // Read the data from the file
         while (fscanf(flowerread, "%s %d %d %d %lf", f_name, &f_id, &f_status, &f_quantity, &f_price) != EOF)
         {
             flower.add_product(static_cast<bool>(f_status), f_id, f_quantity, f_price, f_name);
@@ -98,7 +96,7 @@ int main()
                         std::cout << "Product Name : ";
                         std::cin >> n_name;
                         n_id = lastest_id;
-                        std::cout << "Product Status : ";
+                        std::cout << "Product Status (1 = Alive) And (0 = Nearly Dead ) : ";
                         std::cin >> n_status;
                         std::cout << "Product Quantity : ";
                         std::cin >> n_quantity;
