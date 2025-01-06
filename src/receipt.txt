@@ -1,13 +1,41 @@
 *** Receipt ***
-User Name: Arifin
+User Name: KanzaKi
 User ID  : 100
 -------------------------------
 Flower Name    Quantity  Price     Subtotal
  -------------------------------
-Baby_Breath    10000     15        150000    
+Baby_Breath    100     15        1500    
 -------------------------------
-Total Cost: 150000
+Total Cost: 1500
+*******************************
+
+
+*** Receipt ***
+User Name: Arifin
+User ID  : 10
+-------------------------------
+Flower Name    Quantity  Price     Subtotal
+ -------------------------------
+Peony          10        15        150       
+Baby_Breath    10        15        150       
+-------------------------------
+Total Cost: 300
 *******************************
 
 
 Payment Method: Credit Card
+
+*** Receipt ***
+User Name: Arifin
+User ID  : 1000
+-------------------------------
+Flower Name    Quantity  Price     Subtotal
+ -------------------------------
+Baby_Breath    50        15        750       
+-------------------------------
+Total Cost: 750
+*******************************
+
+
+Payment Method: Cash
+
