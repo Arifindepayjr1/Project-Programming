@@ -195,19 +195,20 @@ public:
             head = current;
             return true;
         }
+        return true;
     }
-    bool delete_last_product()
+    void delete_last_product()
     {
         if (tail == nullptr)
         {
-            return false;
+            return void();
         }
         if (head == tail)
         {
             delete tail;
             head = tail = nullptr;
             --m_size;
-            return true;
+            return void();
         }
 
         Flowers *current = head;
@@ -220,7 +221,7 @@ public:
         tail = current;
         tail->m_flower_next = nullptr;
         --m_size;
-        return true;
+        return void();
     }
 
     int get_size()
